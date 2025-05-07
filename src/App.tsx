@@ -81,12 +81,13 @@ export function App() {
           <div className="flex items-center justify-center gap-2 mb-4">
             {/* <img className="w-10 h-10" src='/img-sq-icon.png'></img> */}
 
-            <img className="w-80" src='/img-squash-logo-full.png'></img>
+            <img className="w-80" src='/img-squash-logo-full.png' alt='Imgsquash.com-logo - Free Online Image Compressor'></img>
             
           </div>
-          <p className="text-gray-600">
-            Compress and convert your images to AVIF, JPEG, JPEG XL, PNG, or WebP
-          </p>
+          <h1 className="text-gray-800 text-2xl">
+          Free Online Image Compressor
+          </h1>
+          <h2 className="text-gray-600 text-lg">Convert and optimize slow loading images to AVIF, JPEG, JPEG XL, PNG, or WebP from your browser!</h2>
         </div>
 
         <div className="space-y-6">
