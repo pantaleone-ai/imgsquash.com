@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from 'react';
-import { Image, Trash2 } from 'lucide-react';
+import { Trash2 } from 'lucide-react';
 import { CompressionOptions } from './components/CompressionOptions';
 import { DropZone } from './components/DropZone';
 import { ImageList } from './components/ImageList';
