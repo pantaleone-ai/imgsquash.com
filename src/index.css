@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-container {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .text-img {
+    fill: url(#iconGradient);
+    font-size: 33px;
+    font-weight: 550;
+  }
+
+  .text-squash {
+    fill: #ffffff;
+    font-size: 34px;
+    font-weight: 200;
+  }
+
+  .bg {
+    fill: url(#bgGradient);
+  }
+
+  .icon-bg {
+    fill: url(#iconGradient);
+    rx: 12;
+  }
+
+  .icon-glow {
+    filter: url(#glow);
+  }
+
+  .icon-text {
+    font-family: 'Orbitron', sans-serif;
+    fill: white;
+    opacity: 0.85;
+    font-size: 24px;
+    font-weight: bold;
+    text-anchor: middle;
+    dominant-baseline: middle;
+  }
+  
