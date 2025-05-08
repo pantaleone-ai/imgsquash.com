@@ -142,7 +142,7 @@ export function App() {
         <p className="text-gray-600">Use AVIF for modern websites needing high-quality images with minimal file sizes. Compress AVIF files with Imgsquash.</p>
       </div>
 
-      <div className="bg-white p-6 rounded-lg shadow-md">
+      <div className="bg-white p-6 rounded-lg shadow-md mt-10">
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">JPEG Image Format</h2>
         <p className="text-gray-600 mb-4">JPEG (Joint Photographic Experts Group) is a widely used format for photos and web graphics.</p>
         <h3 className="text-lg font-medium text-gray-700 text-left">Positives</h3>
@@ -159,7 +159,7 @@ export function App() {
         <p className="text-gray-600">Use JPEG for photos on websites or social media. Optimize JPEGs with Imgsquash’s free JPEG compressor.</p>
       </div>
 
-      <div className="bg-white p-6 rounded-lg shadow-md">
+      <div className="bg-white p-6 rounded-lg shadow-md mt-10">
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">JPEG XL Image Format</h2>
         <p className="text-gray-600 mb-4">JPEG XL is an advanced format designed to replace JPEG with better compression and features.</p>
         <h3 className="text-lg font-medium text-gray-700 text-left">Positives</h3>
@@ -176,7 +176,7 @@ export function App() {
         <p className="text-gray-600">Use JPEG XL for future-proof web projects. Try compressing JPEG XL files with Imgsquash.</p>
       </div>
 
-      <div className="bg-white p-6 rounded-lg shadow-md">
+      <div className="bg-white p-6 rounded-lg shadow-md mt-10">
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">PNG Image Format</h2>
         <p className="text-gray-600 mb-4">PNG (Portable Network Graphics) is popular for web graphics requiring transparency.</p>
         <h3 className="text-lg font-medium text-gray-700 text-left">Positives</h3>
@@ -193,7 +193,7 @@ export function App() {
         <p className="text-gray-600">Use PNG for logos or images needing transparency. Optimize PNGs with Imgsquash’s PNG compressor.</p>
       </div>
 
-      <div className="bg-white p-6 rounded-lg shadow-md">
+      <div className="bg-white p-6 rounded-lg shadow-md mt-10">
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">WebP Image Format</h2>
         <p className="text-gray-600 mb-4">WebP is a modern format developed by Google for efficient web images.</p>
         <h3 className="text-lg font-medium text-gray-700 text-left">Positives</h3>
