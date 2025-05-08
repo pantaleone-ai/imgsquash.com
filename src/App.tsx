@@ -82,14 +82,15 @@ export function App() {
             {/* <img className="w-10 h-10" src='/img-sq-icon.png'></img> */}
 
 
-            <img className="rounded-lg drop-shadow-lg shadow-blue-gray-900/50 h-20" src='/img-squash-logo-full.png' alt='Imgsquash.com-logo - Free Online Image Compressor'></img>
+            <img className="rounded-lg drop-shadow-xl shadow-blue-gray-900/50 h-20" src='/img-squash-logo-full.png' alt='Imgsquash.com-logo - Free Online Image Compressor'></img>
        
 
           </div>
           <h1 className="text-gray-800 text-2xl">
-          Free Online Image Compressor
+         <span className='tracking-[-.15em] font-medium'>squash</span>  Image File Sizes
           </h1>
-          <h2 className="text-gray-600 text-lg">Convert and optimize slow loading images to AVIF, JPEG, JPEG XL, PNG, or WebP from your browser!</h2>
+          <h2 className="text-gray-500 text-xl m-2">While maintaining quality</h2>
+          <h2 className="text-gray-500 text-md">Convert & shrink images to AVIF, JPEG, PNG, WebP, or JPEG XL. Free tool for faster websites right in your browser.</h2>
         </div>
 
         <div className="space-y-6">
