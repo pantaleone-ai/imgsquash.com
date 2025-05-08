@@ -11,6 +11,7 @@ import type { ImageFile, OutputType, CompressionOptions as CompressionOptionsTyp
 
 
 export function App() {
+  const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
   const [images, setImages] = useState<ImageFile[]>([]);
   const [outputType, setOutputType] = useState<OutputType>('webp');
   const [options, setOptions] = useState<CompressionOptionsType>({
@@ -76,7 +77,7 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4 py-12">
+      <div className="max-w-4xl mx-auto px-4 py-6">
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-2 mb-4">
             {/* <img className="w-10 h-10" src='/img-sq-icon.png'></img> */}
@@ -89,8 +90,8 @@ export function App() {
           <h1 className="text-gray-800 text-2xl">
          <span className='tracking-[-.15em] font-medium'>squash</span>  Image File Sizes
           </h1>
-          <h2 className="text-gray-500 text-xl m-2">While maintaining quality</h2>
-          <h2 className="text-gray-500 text-md">Convert & shrink images to AVIF, JPEG, PNG, WebP, or JPEG XL. Free tool for faster websites right in your browser.</h2>
+          <h2 className="text-gray-500 text-xl m-4">While maintaining quality</h2>
+          <h2 className="text-gray-500 text-sm tracking-tight">Convert & shrink images to AVIF, JPEG, PNG, WebP, or JPEG XL. Free tool for faster websites right in your browser.</h2>
         </div>
 
         <div className="space-y-6">
@@ -212,6 +213,47 @@ export function App() {
       </div>
     </section>
     </div>
+
+    {/* Why use imgsquash.com accordion */}
+    <div className="mt-8">
+            <h2 className="text-lg font-semibold mb-4">Why use imgsquash.com for high-quality image optimization?</h2>
+            {[
+                            {
+                              title: "Faster load times",
+                              content: "Reduce page loading times significantly by compressing images without sacrificing visual quality. Faster load speeds enhance user experience, improve SEO rankings, and ensure your website remains engaging for visitors across all devices."
+                            },
+              {
+                title: "Browser-based",
+                content: "Our browser-based tool eliminates the need for software downloads, allowing you to compress and optimize images directly from your device. Accessible on any modern browser, it ensures seamless compatibility across platforms without compromising performance or quality."
+              },
+              {
+                title: "Configurable options",
+                content: "Tailor your image compression with configurable settings to balance quality and file size. Whether you're optimizing for web speed or print resolution, our tool provides precise control over output formats, quality levels, and advanced features like metadata removal."
+              },
+              {
+                title: "One at a time or in bulk",
+                content: "Process individual images for quick edits or upload multiple files simultaneously to batch optimize your media library. This flexibility makes it ideal for photographers, designers, and website owners who need efficient image management solutions."
+              }
+
+            ].map((item, index) => (
+              <div key={index} className="border-b border-gray-200">
+                <button
+                  onClick={() => setActiveAccordion(activeAccordion === `item-${index}` ? null : `item-${index}`)}
+                  className="w-full text-left px-4 py-3 flex justify-between items-center focus:outline-none"
+                >
+                  <span>{item.title}</span>
+                  <span>
+                    {activeAccordion === `item-${index}` ? '−' : '+'}
+                  </span>
+                </button>
+                {activeAccordion === `item-${index}` && (
+                  <div className="px-4 pb-3 text-gray-600">
+                    {item.content}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
                     
                     
                     <h1 className="text-gray-500 text-xs pt-10">
