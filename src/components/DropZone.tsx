@@ -55,14 +55,14 @@ export function DropZone({ onFilesDrop }: DropZoneProps) {
         htmlFor="fileInput"
         className="cursor-pointer flex flex-col items-center gap-4"
       >
-        <Upload className="w-12 h-12 text-gray-400" />
+        <Upload className="w-20 h-20 text-gray-400" />
         <div>
-          <p className="text-lg font-medium text-gray-700">
+          <p className="text-lg font-medium text-gray-700 pb-4">
             Drop images here or click to upload
           </p>
-          <p className="text-sm text-gray-500">
+          {/* <p className="text-sm text-gray-500">
             Supports JPEG, PNG, WebP, AVIF, and JXL
-          </p>
+          </p> */}
         </div>
       </label>
     </div>

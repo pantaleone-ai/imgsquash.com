@@ -91,10 +91,10 @@ export function App() {
          <span className='tracking-[-.15em] font-medium'>squash</span>  Image File Sizes
           </h1>
           <h2 className="text-gray-500 text-xl m-4">While maintaining quality</h2>
-          <h2 className="text-gray-500 text-sm tracking-tight">Convert & shrink images to AVIF, JPEG, PNG, WebP, or JPEG XL. Free tool for faster websites right in your browser.</h2>
+          <h2 className="text-gray-500 text-sm tracking-tight">Convert and shrink images to AVIF, JPEG, PNG, WebP, or JPEG XL. Free tool for faster websites right in your browser.</h2>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-6 ">
           <CompressionOptions
             options={options}
             outputType={outputType}
@@ -122,9 +122,13 @@ export function App() {
               Clear All
             </button>
           )}
-                  <div className="text-center m-8">
+<div className="text-center m-8 pt-20">
+<hr className="border-8 h-1 border-gradient-to-r from-gray-200 to-gray-800 rounded-full shadow-lg border-b-gray-300 border-b-2 " />
+
+                  
                   <div className="flex items-center justify-center gap-2 mt-10 pt-20">
                     
+
 
     <section className="w-full">
       <div className="w-full bg-white p-6 rounded-lg shadow-md">
