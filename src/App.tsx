@@ -118,7 +118,23 @@ export function App() {
               Clear All
             </button>
           )}
+                  <div className="text-center m-8">
+                  <div className="flex items-center justify-center gap-2 mt-20">
+                    <h1 className="text-gray-500 text-xs">
+                      &copy; copyright imgsquash.com all rights reserved
+                   </h1>
+                 
+
+
+          </div>
+          <p className="text-gray-400 text-xs pt-2">
+          <a href='/privacy.html' target='_blank' >Privacy policy </a>
+          |  
+          <a href='/terms.html' target='_blank' > Terms of use </a>
+          </p>
+          </div>
         </div>
+        
       </div>
     </div>
   );
