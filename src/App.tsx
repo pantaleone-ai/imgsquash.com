@@ -88,10 +88,10 @@ export function App() {
 
           </div>
           <h1 className="text-gray-800 text-2xl">
-         <span className='tracking-[-.15em] font-medium'>squash</span>  Image File Sizes
+         Free Online Image Optimizer: Convert & Compress to AVIF, WebP, JPEG, PNG, and JPEG XL
           </h1>
-          <h2 className="text-gray-500 text-xl m-4">While maintaining quality</h2>
-          <h2 className="text-gray-500 text-sm tracking-tight">Convert and shrink images to AVIF, JPEG, PNG, WebP, or JPEG XL. Free tool for faster websites right in your browser.</h2>
+          <h2 className="text-gray-500 text-xl m-4">Boost Website Speed and User Experience with Our Free Online Image Converter & Compressor</h2>
+          <h2 className="text-gray-500 text-sm tracking-tight">Quickly and Easily Shrink and Convert Images Online for Faster Loading and Better SEO with Minimal Quality Loss!</h2>
         </div>
 
         <div className="space-y-6 ">
@@ -126,12 +126,59 @@ export function App() {
 <hr className="border-8 h-1 border-gradient-to-r from-gray-200 to-gray-800 rounded-full shadow-lg border-b-gray-300 border-b-2 " />
 
                   
-                  <div className="flex items-center justify-center gap-2 mt-10 pt-20">
+                  <div className="flex items-center justify-center gap-2 mt-10 pt-10">
                     
 
 
     <section className="w-full">
+
       <div className="w-full bg-white p-6 rounded-lg shadow-md">
+          
+    <h2 className="text-2xl font-semibold text-gray-800 mb-4">Boost Website Speed with Our Free Online Image Compressor</h2>
+
+    <p className="text-gray-600 mb-4 text-sm">
+        Make your website blazing fast and improve your search engine ranking with Imgsquash, your free online image optimization tool. Our powerful image converter and compressor allows you to effortlessly convert and shrink your images right in your browser, supporting all the essential formats: AVIF, JPEG, PNG, WebP, and JPEG XL.
+    </p>
+
+    <h3 className="text-lg font-medium text-gray-700 text-left mb-2">Why is Image Optimization Required?</h3>
+
+    <p className="text-gray-600 mb-4 text-sm">
+        Large, unoptimized images can significantly slow down your website, leading to frustrated visitors and lower search engine rankings. Google and other search engines prioritize fast-loading websites, making image optimization a vital part of your SEO strategy. By reducing image file sizes without sacrificing quality, you can dramatically improve your site's performance and provide a better user experience.
+    </p>
+
+    <h3 className="text-lg font-medium text-gray-700 text-left mb-2">Imgsquash: Your Image Optimization Tool</h3>
+
+    <ul className="list-disc pl-6 text-gray-600 mb-8 text-left text-sm">
+        <li className="mb-4">
+            <strong>Support for Next-Gen Formats:</strong> Easily convert your images to modern, highly efficient formats like AVIF and WebP, known for their superior compression and quality compared to older formats like JPEG and PNG. We also support the advanced JPEG XL format, offering excellent compression and features like lossless recompression.
+        </li>
+        <li className="mb-4">
+            <strong>Broad Format Compatibility:</strong> Convert between and compress images in popular formats including JPEG and PNG, ensuring compatibility across all browsers and devices.
+        </li>
+        <li className="mb-4">
+            <strong>Significant File Size Reduction:</strong> Our advanced compression algorithms effectively shrink your image files, resulting in faster loading times and reduced bandwidth usage.
+        </li>
+        <li className="mb-4">
+            <strong>Maintain Image Quality:</strong> We offer options for both lossy and lossless compression, allowing you to choose the perfect balance between file size reduction and visual fidelity.
+        </li>
+        <li className="mb-4">
+            <strong>Browser-Based and User-Friendly:</strong> No software installation required. Optimize your images quickly and easily directly in your web browser.
+        </li>
+        <li className="mb-4">
+            <strong>Fast and Efficient:</strong> Convert and compress your images rapidly, whether you're processing a single image or multiple files.
+        </li>
+    </ul>
+
+    <h3 className="text-lg font-medium text-gray-700 text-left mb-2">Optimize Your Images for Better SEO and Faster Loading User Experiences</h3>
+
+    <p className="text-gray-600 mb-4 text-sm">
+        Using Imgsquash helps you implement key image SEO best practices. Reduced image sizes contribute to faster page load speeds, a critical ranking factor. By having optimized images, you improve user experience, which can lead to lower bounce rates and increased time spent on your site. Start optimizing your images today with Imgsquash and experience the benefits of a faster, higher-ranking website.
+    </p>
+
+
+      </div>
+      
+      <div className="w-full bg-white p-6 rounded-lg shadow-md mt-10">
         <h2 className="text-2xl font-semibold text-gray-800 mb-4">AVIF Image Format</h2>
         <p className="text-gray-600 mb-4">AVIF (AV1 Image File Format) is a next-generation format offering superior compression for web images.</p>
         <h3 className="text-lg font-medium text-gray-700 text-left">Positives</h3>
