@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "lib": ["dom"],
+    "paths": {
+      "https://deno.land/std@0.131.0/http/server.ts": ["../../node_modules/@types/deno-types/deno.land/std_0.131.0/http/server.d.ts"],
+      "https://esm.sh/@supabase/supabase-js@2": ["../../node_modules/@types/supabase-js-v2/index.d.ts"],
+      "https://esm.sh/stripe@10.17.0": ["../../node_modules/@types/stripe/index.d.ts"]
+    }
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["node_modules"]
+}

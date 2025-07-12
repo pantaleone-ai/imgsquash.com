@@ -1,6 +1,8 @@
 import { useCallback } from 'react';
 import type { ImageFile, OutputType, CompressionOptions } from '../types';
 import { decode, encode, getFileType } from '../utils/imageProcessing';
+import { applyWatermark, imageDataToCanvas } from '../utils/canvas';
+import { supabase } from '../utils/supabase';
 
 export function useImageProcessing(
   options: CompressionOptions,
@@ -25,11 +27,22 @@ export function useImageProcessing(
       }
 
       // Decode the image
-      const imageData = await decode(sourceType, fileBuffer);
+      let imageData = await decode(sourceType, fileBuffer);
       
       if (!imageData || !imageData.width || !imageData.height) {
         throw new Error('Invalid image data');
       }
+      
+      const session = await supabase.auth.getSession();
+      const user = session?.data?.session?.user;
+
+      if (!user) {
+        const canvas = imageDataToCanvas(imageData);
+        applyWatermark(canvas);
+        const ctx = canvas.getContext('2d')!;
+        imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      }
+
 
       // Encode to the target format
       const compressedBuffer = await encode(outputType, imageData, options);

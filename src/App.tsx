@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { Trash2 } from 'lucide-react';
 import { CompressionOptions } from './components/CompressionOptions';
 import { DropZone } from './components/DropZone';
@@ -7,7 +7,9 @@ import { DownloadAll } from './components/DownloadAll';
 import { useImageQueue } from './hooks/useImageQueue';
 import { DEFAULT_QUALITY_SETTINGS } from './utils/formatDefaults';
 import type { ImageFile, OutputType, CompressionOptions as CompressionOptionsType } from './types';
-// import { Logo } from './components/Logo';
+import { supabase } from './utils/supabase';
+import { StripeProvider } from './components/StripeProvider';
+import Navbar from './components/Navbar';
 
 
 export function App() {
@@ -17,6 +19,22 @@ export function App() {
   const [options, setOptions] = useState<CompressionOptionsType>({
     quality: DEFAULT_QUALITY_SETTINGS.webp,
   });
+  const [session, setSession] = useState<any>(null);
+  const [isSubscriber, _setIsSubscriber] = useState(false);
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session)
+    })
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session)
+    })
+
+    return () => subscription.unsubscribe()
+  }, [])
 
   const { addToQueue } = useImageQueue(options, outputType, setImages);
 
@@ -77,22 +95,28 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Navbar session={session} onLogin={() => {}} onLogout={() => supabase.auth.signOut()} />
       <div className="max-w-4xl mx-auto px-4 py-6">
         <div className="text-center mb-8">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            {/* <img className="w-10 h-10" src='/img-sq-icon.png'></img> */}
-
-
-            <img className="rounded-lg drop-shadow-xl shadow-blue-gray-900/50 h-20" src='/img-squash-logo-full.png' alt='Imgsquash.com-logo - Free Online Image Compressor'></img>
-       
-
-          </div>
-          <h1 className="text-gray-800 text-2xl">
-         Free Online Image Optimizer: Convert & Compress to AVIF, WebP, JPEG, PNG, and JPEG XL
+        <h1 className="text-gray-800 text-3xl mb-4 font-bold leading-none">
+         imgSquash.com: Free Image Optimizer
           </h1>
-          <h2 className="text-gray-500 text-xl m-4">Boost Website Speed and User Experience with Our Free Online Image Converter & Compressor</h2>
-          <h2 className="text-gray-500 text-sm tracking-tight">Quickly and Easily Shrink and Convert Images Online for Faster Loading and Better SEO with Minimal Quality Loss!</h2>
+          <h2 className="text-gray-800 text-xl m-2 p-2 font-semibold leading-none">Convert & Compress to AVIF, WebP, PNG, & JPEGXL - right in Your Browser!</h2>
+          <h3 className="text-gray-600 text-lg m-4 mt-4 font-medium leading-none">Boost Website Speed and User Experience with Our Free Online Image Converter & Compressor</h3>
+          <p className="text-gray-500 tracking-tight m-6 p-4 leading-none font-medium">Quickly Shrink and Convert Images Online for Faster Loading and Better SEO with Minimal Quality Loss</p>
         </div>
+        
+        {session && !isSubscriber && (
+          <div id="subscribe-section" className="my-8">
+            <h2 className="text-2xl font-semibold text-center">Become a Subscriber</h2>
+            <p className="text-center text-gray-600">
+              Remove watermarks and get priority support by subscribing to our service.
+            </p>
+            <div className="mt-4 max-w-md mx-auto">
+              <StripeProvider />
+            </div>
+          </div>
+        )}
 
         <div className="space-y-6 ">
           <CompressionOptions
