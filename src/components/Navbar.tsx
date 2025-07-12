@@ -23,9 +23,9 @@ export default function Navbar({ session, onLogin, onLogout }) {
   return (
     <div className="sticky top-0 z-50">
       {isAnnouncementVisible && (
-        <div className="relative isolate flex items-center gap-x-4 bg-gray-50 shadow-xs px-6 py-2.5 sm:px-4 sm:before:flex-1">
+        <div className="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-200 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-            <p className="text-sm/6 text-gray-900">
+            <p className="text-sm/6 text-gray-800 items-center">
               <strong className="font-semibold">Remove that Watermark!</strong>
               <svg viewBox="0 0 2 2" aria-hidden="true" className="mx-2 inline size-0.5 fill-current">
                 <circle cx={1} cy={1} r={1} />
@@ -33,9 +33,9 @@ export default function Navbar({ session, onLogin, onLogout }) {
               <a
                 href="#"
                 onClick={handleScrollToSubscribe}
-                className="flex-none rounded-full bg-blue-500 px-3.5 py-1 text-sm font-bold text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                className="flex-none rounded-full bg-blue-600 px-3.5 py-1 text-sm font-bold text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
               >
-                Lifetime Access Only $5<span aria-hidden="true">&rarr;</span>
+                Unlimited Use for $5<span aria-hidden="true">&rarr;</span>
               </a>
             </p>
           </div>
@@ -51,14 +51,14 @@ export default function Navbar({ session, onLogin, onLogout }) {
           </div>
         </div>
       )}
-      <nav className="w-full bg-white shadow-lg">
+      <nav className="w-full bg-white shadow-sm">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             {/* Logo/Brand */}
             <div className="flex-shrink-0">
               <a href="/" className="flex items-center space-x-2">
                 <img className="h-10 w-10" src='/android-chrome-192x192.png' alt='Imgsquash.com logo icon'></img>
-                <span className="text-xl font-bold text-gray-800 tracking-tighter" style={{ fontFamily: "'Orbitron', sans-serif" }}>imgSquash</span>
+                <span className="text-2xl font-bold text-gray-800" style={{ fontFamily: "'Orbitron', sans-serif" }}>imgSquash</span>
               </a>
             </div>
 
