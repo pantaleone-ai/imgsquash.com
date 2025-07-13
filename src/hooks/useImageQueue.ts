@@ -10,14 +10,14 @@ export function useImageQueue(
 ) {
   const MAX_PARALLEL_PROCESSING = 3;
   const [queue, setQueue] = useState<string[]>([]);
-  const processingCount = useRef(0);
+  const [processingCount, setProcessingCount] = useState(0); // Changed to useState
   const processingImages = useRef(new Set<string>());
   const { processImage } = useImageProcessing(options, outputType, setImages, isSubscribed);
 
   const processNextInQueue = useCallback(() => {
-    console.log(`[useImageQueue] processNextInQueue called. Queue length: ${queue.length}, Processing count: ${processingCount.current}`);
+    console.log(`[useImageQueue] processNextInQueue called. Queue length: ${queue.length}, Processing count: ${processingCount}`);
 
-    if (queue.length === 0 || processingCount.current >= MAX_PARALLEL_PROCESSING) {
+    if (queue.length === 0 || processingCount >= MAX_PARALLEL_PROCESSING) {
       console.log('[useImageQueue] No images in queue or max parallel processing reached. Exiting.');
       return;
     }
@@ -26,7 +26,7 @@ export function useImageQueue(
       const imagesToProcess = prev.filter(img => 
         queue.includes(img.id) && 
         !processingImages.current.has(img.id)
-      ).slice(0, MAX_PARALLEL_PROCESSING - processingCount.current);
+      ).slice(0, MAX_PARALLEL_PROCESSING - processingCount);
 
       console.log(`[useImageQueue] Found ${imagesToProcess.length} images to process in this batch.`);
 
@@ -38,13 +38,12 @@ export function useImageQueue(
       imagesToProcess.forEach(image => {
         console.log(`[useImageQueue] Initiating processing for image: ${image.id}`);
         processingImages.current.add(image.id);
-        processingCount.current++;
+        setProcessingCount(prevCount => prevCount + 1); // Update state
         processImage(image).finally(() => {
           console.log(`[useImageQueue] Processing finished for image: ${image.id}`);
           processingImages.current.delete(image.id);
-          processingCount.current--;
-          // Recursively call to process next image if capacity available
-          processNextInQueue();
+          setProcessingCount(prevCount => prevCount - 1); // Update state
+          // Removed recursive call here; useEffect will now handle triggering next batch
         });
       });
 
@@ -53,18 +52,18 @@ export function useImageQueue(
         !imagesToProcess.some(img => img.id === id)
       ));
 
-      // Return the previous state without modifying status here
-      // Image status updates are handled by useImageProcessing directly
       return prev;
     });
-  }, [queue, processImage, setImages, isSubscribed]);
+  }, [queue, processingCount, processImage, setImages, isSubscribed]); // Added processingCount to dependencies
 
   useEffect(() => {
-    console.log(`[useImageQueue] Queue or processNextInQueue dependency changed. Current queue length: ${queue.length}`);
-    if (queue.length > 0) {
+    // This effect now correctly triggers processNextInQueue when queue changes
+    // or when processingCount state changes (implicitly via image processing completion)
+    console.log(`[useImageQueue] useEffect triggered. Current queue length: ${queue.length}, Processing count: ${processingCount}`);
+    if (queue.length > 0 && processingCount < MAX_PARALLEL_PROCESSING) {
       processNextInQueue();
     }
-  }, [queue, processNextInQueue]);
+  }, [queue, processingCount, processNextInQueue]); // processingCount is now a state variable
 
   const addToQueue = useCallback((imageId: string) => {
     console.log(`[useImageQueue] Adding image ${imageId} to queue.`);
