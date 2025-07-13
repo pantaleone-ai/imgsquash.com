@@ -33,7 +33,7 @@ export default function Navbar({ session, onLogin, onLogout }) {
               <a
                 href="#"
                 onClick={handleScrollToSubscribe}
-                className="flex-none rounded-full bg-blue-600 px-3.5 py-1 text-sm font-bold text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                className="flex-none rounded-full bg-blue-500 px-3.5 py-1 text-sm font-bold text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
               >
                 Unlimited Use for $5<span aria-hidden="true">&rarr;</span>
               </a>
@@ -51,7 +51,7 @@ export default function Navbar({ session, onLogin, onLogout }) {
           </div>
         </div>
       )}
-      <nav className="w-full bg-white shadow-sm">
+      <nav className="w-full bg-white shadow-md">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 items-center justify-between">
             {/* Logo/Brand */}
