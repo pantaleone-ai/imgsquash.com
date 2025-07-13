@@ -22,7 +22,7 @@ export function applyWatermark(canvas: HTMLCanvasElement) {
   const ctx = canvas.getContext('2d')!;
   const watermarkText = 'imgsquash.com';
   ctx.font = 'bold 36px sans-serif';
-  ctx.fillStyle = 'rgba(128, 128, 128, 0.5)';
+  ctx.fillStyle = 'rgba(128, 128, 128, 0.25)';
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
 

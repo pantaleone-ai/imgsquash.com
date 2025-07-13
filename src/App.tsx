@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback } from 'react';
 import { Trash2 } from 'lucide-react';
 import { CompressionOptions } from './components/CompressionOptions';
 import { DropZone } from './components/DropZone';
@@ -10,7 +10,7 @@ import type { ImageFile, OutputType, CompressionOptions as CompressionOptionsTyp
 import { supabase } from './utils/supabase';
 import { StripeProvider } from './components/StripeProvider';
 import Navbar from './components/Navbar';
-
+import { useSubscription } from './hooks/useSubscription';
 
 export function App() {
   const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
@@ -19,24 +19,9 @@ export function App() {
   const [options, setOptions] = useState<CompressionOptionsType>({
     quality: DEFAULT_QUALITY_SETTINGS.webp,
   });
-  const [session, setSession] = useState<any>(null);
-  const [isSubscriber, _setIsSubscriber] = useState(false);
+  const { isSubscribed, session } = useSubscription();
 
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      setSession(session)
-    })
-
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
-    })
-
-    return () => subscription.unsubscribe()
-  }, [])
-
-  const { addToQueue } = useImageQueue(options, outputType, setImages);
+  const { addToQueue } = useImageQueue(options, outputType, setImages, isSubscribed);
 
   const handleOutputTypeChange = useCallback((type: OutputType) => {
     setOutputType(type);
@@ -46,12 +31,8 @@ export function App() {
   }, []);
 
   const handleFilesDrop = useCallback((newImages: ImageFile[]) => {
-    // First add all images to state
     setImages((prev) => [...prev, ...newImages]);
-    
-    // Use requestAnimationFrame to wait for render to complete
     requestAnimationFrame(() => {
-      // Then add to queue after UI has updated
       newImages.forEach(image => addToQueue(image.id));
     });
   }, [addToQueue]);
@@ -109,7 +90,7 @@ export function App() {
           </p>
         </header>
 
-        {session && !isSubscriber && (
+        {session && !isSubscribed && (
           <section id="subscribe-section" className="my-12 p-8 bg-white rounded-2xl shadow-lg">
             <h2 className="text-3xl font-bold text-center text-gray-900">Become a Subscriber</h2>
             <p className="mt-4 text-center text-lg text-gray-600">
@@ -150,9 +131,8 @@ export function App() {
             </button>
           )}
         </section>
-
         <section className="mt-16">
-          <hr className="border-t-2 border-gray-200" />
+          <hr className="border-t-1 border-gray-200" />
         </section>
 
         <section className="mt-16 grid gap-12">
@@ -259,10 +239,10 @@ export function App() {
       </main>
 
       <footer className="max-w-4xl mx-auto px-4 py-8 sm:px-6 lg:px-8 text-center text-gray-500">
-        <p className="text-sm">
+        <p className="text-xs">
           &copy; {new Date().getFullYear()} imgsquash.com. All rights reserved.
         </p>
-        <p className="mt-2 text-sm">
+        <p className="mt-2 text-xs">
           <a href='/privacy.html' target='_blank' className="hover:underline">Privacy Policy</a>
           <span className="mx-2">|</span>
           <a href='/terms.html' target='_blank' className="hover:underline">Terms of Use</a>
