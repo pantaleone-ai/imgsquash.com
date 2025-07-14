@@ -1,42 +1,39 @@
 import { useState, useEffect } from 'react';
 import { supabase } from '../utils/supabase';
+import { Session } from '@supabase/supabase-js';
 
-export function useSubscription() {
+export const useSubscription = () => {
+  const [session, setSession] = useState<Session | null>(null);
   const [isSubscribed, setIsSubscribed] = useState(false);
-  const [session, setSession] = useState<any>(null);
 
   useEffect(() => {
     const getSession = async () => {
       const { data: { session } } = await supabase.auth.getSession();
       setSession(session);
+
       if (session) {
         const { data: profile } = await supabase
           .from('profiles')
-          .select('is_subscribed')
+          .select('subscription_status')
+          .eq('id', session.user.id)
           .single();
-        setIsSubscribed(profile?.is_subscribed || false);
+        
+        if (profile) {
+          setIsSubscribed(profile.subscription_status === 'active');
+        }
       }
     };
 
     getSession();
 
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(async (_event, session) => {
+    const { data: authListener } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
-      if (session) {
-        const { data: profile } = await supabase
-          .from('profiles')
-          .select('is_subscribed')
-          .single();
-        setIsSubscribed(profile?.is_subscribed || false);
-      } else {
-        setIsSubscribed(false);
-      }
     });
 
     return () => {
-      subscription.unsubscribe();
+      authListener?.subscription.unsubscribe();
     };
   }, []);
 
-  return { isSubscribed, session };
-}
+  return { session, isSubscribed };
+};

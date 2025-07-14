@@ -13,7 +13,8 @@ export default function Navbar({ session, onLogin, onLogout }) {
     setIsMenuOpen(!isMenuOpen)
   }
 
-  const handleScrollToSubscribe = () => {
+  const handleScrollToSubscribe = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
     const subscribeSection = document.getElementById('subscribe-section');
     if (subscribeSection) {
       subscribeSection.scrollIntoView({ behavior: 'smooth' });
@@ -31,7 +32,7 @@ export default function Navbar({ session, onLogin, onLogout }) {
                 <circle cx={1} cy={1} r={1} />
               </svg>
               <a
-                href="#"
+                href="#subscribe-section"
                 onClick={handleScrollToSubscribe}
                 className="flex-none rounded-full bg-blue-500 px-3.5 py-1 text-sm font-bold text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
               >
