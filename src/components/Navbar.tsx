@@ -23,7 +23,7 @@ export default function Navbar({ session, onLogin, onLogout }) {
   return (
     <div className="sticky top-0 z-50">
       {isAnnouncementVisible && (
-        <div className="relative isolate flex items-center gap-x-2 overflow-hidden bg-gray-100 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
+        <div className="relative isolate flex items-center gap-x-2 overflow-hidden bg-gray-100 px-6 py-2.5 sm:px-3.5 sm:before:flex-1 md:items-center">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
             <p className="text-sm/6 text-gray-800 items-center">
               <strong className="font-semibold">Remove Watermark!</strong>
@@ -61,11 +61,11 @@ export default function Navbar({ session, onLogin, onLogout }) {
                 <span className="text-2xl font-bold text-gray-900" style={{ fontFamily: "'Orbitron', sans-serif" }}>
   <span className="
     bg-gradient-to-r from-blue-600 to-blue-400 /* The gradient */
-    text-transparent bg-clip-text             /* The clipping magic */
+    text-transparent bg-clip-text       /* The clipping magic */
   ">
     img
   </span>
-  <span className="tracking-tight font-black text-xl text-gray-700">Squash</span>
+  <span className="tracking-tight font-black text-xl text-shadow-xs text-gray-700 ">Squash</span>
 </span>              </a>
             </div>
 

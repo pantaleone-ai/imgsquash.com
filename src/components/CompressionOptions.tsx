@@ -15,13 +15,13 @@ export function CompressionOptions({
   onOutputTypeChange,
 }: CompressionOptionsProps) {
   return (
-    <div className="space-y-6 w-full bg-white p-6 rounded-lg shadow-md">
+    <div className="border-2 border-gray-200 space-y-6 w-full bg-white p-6 rounded-lg shadow-lg">
       <div>
-        <label className="text-center block text-lg font-bold text-gray-700 mb-6">
+        <label className="text-center block text-xl font-bold text-gray-800 mb-6">
           Select Image Format & Quality:
         </label>
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-2">
-          {(['avif', 'jpeg', 'jxl', 'png', 'webp'] as const).map((format) => (
+          {(['webp', 'avif', 'png', 'jpeg', 'jpgxl'] as const).map((format) => (
             <button
               key={format}
               className={`px-4 py-2 rounded-md text-md font-medium uppercase border-[.1rem] ${
@@ -39,8 +39,8 @@ export function CompressionOptions({
 
       {outputType !== 'png' && (
         <div>
-          <label className="block text-md font-bold text-gray-700 mb-2">
-            Set Quality: {options.quality}%
+          <label className="block text-md font-bold text-gray-800 mb-4">
+            Image Quality: {options.quality}%
           </label>
           <input
             type="range"
