@@ -53,11 +53,11 @@ export function DropZone({ onFilesDrop }: DropZoneProps) {
       />
       <label
         htmlFor="fileInput"
-        className="cursor-pointer flex flex-col items-center gap-4"
+        className="cursor-pointer flex flex-col items-center gap-4 "
       >
-        <Upload className="w-20 h-20 text-gray-400" />
+        <Upload className="w-20 h-20 text-gray-500" />
         <div>
-          <p className="text-lg font-medium text-gray-700 pb-4">
+          <p className="text-xl leading-none font-medium text-gray-800 pb-4">
             Drop images here or click to upload
           </p>
           {/* <p className="text-sm text-gray-500">

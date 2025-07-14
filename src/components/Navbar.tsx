@@ -23,11 +23,11 @@ export default function Navbar({ session, onLogin, onLogout }) {
   return (
     <div className="sticky top-0 z-50">
       {isAnnouncementVisible && (
-        <div className="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-200 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
+        <div className="relative isolate flex items-center gap-x-2 overflow-hidden bg-gray-100 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
             <p className="text-sm/6 text-gray-800 items-center">
-              <strong className="font-semibold">Remove that Watermark!</strong>
-              <svg viewBox="0 0 2 2" aria-hidden="true" className="mx-2 inline size-0.5 fill-current">
+              <strong className="font-semibold">Remove Watermark!</strong>
+              <svg viewBox="0 0 2 2" aria-hidden="true" className="mx-1 inline size-0.5 fill-current">
                 <circle cx={1} cy={1} r={1} />
               </svg>
               <a
@@ -35,7 +35,7 @@ export default function Navbar({ session, onLogin, onLogout }) {
                 onClick={handleScrollToSubscribe}
                 className="flex-none rounded-full bg-blue-500 px-3.5 py-1 text-sm font-bold text-white shadow-sm hover:bg-blue-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
               >
-                Unlimited Use for $5<span aria-hidden="true">&rarr;</span>
+                Unlimited Use for $5
               </a>
             </p>
           </div>
@@ -53,13 +53,20 @@ export default function Navbar({ session, onLogin, onLogout }) {
       )}
       <nav className="w-full bg-white shadow-md">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex h-16 items-center justify-between">
+          <div className="flex h-14 items-center justify-between">
             {/* Logo/Brand */}
             <div className="flex-shrink-0">
               <a href="/" className="flex items-center space-x-2">
-                <img className="h-10 w-10" src='/android-chrome-192x192.png' alt='Imgsquash.com logo icon'></img>
-                <span className="text-2xl font-bold text-gray-800" style={{ fontFamily: "'Orbitron', sans-serif" }}>imgSquash</span>
-              </a>
+                {/* <img className="h-10 w-10" src='/android-chrome-192x192.png' alt='Imgsquash.com logo icon'></img> */}
+                <span className="text-2xl font-bold text-gray-900" style={{ fontFamily: "'Orbitron', sans-serif" }}>
+  <span className="
+    bg-gradient-to-r from-blue-600 to-blue-400 /* The gradient */
+    text-transparent bg-clip-text             /* The clipping magic */
+  ">
+    img
+  </span>
+  <span className="tracking-tight font-black text-xl text-gray-700">Squash</span>
+</span>              </a>
             </div>
 
             {/* CTA Button */}

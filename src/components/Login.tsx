@@ -35,7 +35,7 @@ export function Login({ onLogin }) {
         placeholder="Email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        className="rounded-md border border-gray-300 px-3 py-2 text-sm text-gray-800 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+        className="w-40 rounded-md border border-gray-300 px-2 py-2 text-sm text-gray-800 shadow-sm focus:border-blue-500 focus:ring-blue-500"
         required
       />
       <input
@@ -43,17 +43,17 @@ export function Login({ onLogin }) {
         placeholder="Password"
         value={password}
         onChange={(e) => setPassword(e.target.value)}
-        className="rounded-md border border-gray-300 px-3 py-2 text-sm text-gray-800 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+        className="w-40 rounded-md border border-gray-300 px-3 py-2 text-sm text-gray-800 shadow-sm focus:border-blue-500 focus:ring-blue-500"
         required
       />
       <button
         type="submit"
         disabled={isSubmitting}
-        className="rounded-md bg-blue-500 px-4 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
+        className="rounded-md bg-blue-500 px-2 py-2 text-sm font-medium text-white shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50"
       >
         {isSubmitting ? 'Logging in...' : 'Login'}
       </button>
-      {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
+      {error && <p className="mt-2 text-sm text-red-800">{error}</p>}
     </form>
   );
 }

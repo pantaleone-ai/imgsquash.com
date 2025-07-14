@@ -13,7 +13,7 @@ import Navbar from './components/Navbar';
 import { useSubscription } from './hooks/useSubscription';
 
 export function App() {
-  const [activeAccordion, setActiveAccordion] = useState<string | null>(null);
+  const [activeAccordion, setActiveAccordion] = useState<string | null>('item-0');
   const [images, setImages] = useState<ImageFile[]>([]);
   const [outputType, setOutputType] = useState<OutputType>('webp');
   const [options, setOptions] = useState<CompressionOptionsType>({
@@ -79,14 +79,14 @@ export function App() {
       <Navbar session={session} onLogin={() => {}} onLogout={() => supabase.auth.signOut()} />
       <main className="max-w-4xl mx-auto px-4 py-8 sm:px-6 lg:px-8">
         <header className="text-center mb-12">
-          <h1 className="text-4xl font-extrabold text-gray-900 sm:text-5xl">
-            imgSquash: Free Image Optimizer
+          <h1 className="text-4xl leading-none font-extrabold text-gray-900 sm:text-5xl">
+            Create Faster Loading Images
           </h1>
           <h2 className="mt-4 text-xl text-gray-700 font-semibold">
             Convert & Compress to AVIF, WebP, PNG, & JPEGXL
           </h2>
-          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
-            Boost your website's speed and user experience by shrinking images for faster loading and better SEO without sacrificing quality.
+          <p className="leading-6 mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+            Boost speed, SEO and user experience by instantly shrinking image file sizes without reducing quality!
           </p>
         </header>
 
@@ -137,15 +137,15 @@ export function App() {
 
         <section className="mt-16 grid gap-12">
           <article className="p-8 bg-white rounded-2xl shadow-lg">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Boost Website Speed with Our Free Online Image Compressor</h2>
+            <h2 className="leading-none text-3xl font-bold text-gray-900 mb-6">Boost Website Speed with Our Free Online Image Compressor</h2>
             <p className="text-lg text-gray-600 mb-6">
               Make your website blazing fast and improve your search engine ranking with Imgsquash, your free online image optimization tool. Our powerful image converter and compressor allows you to effortlessly convert and shrink your images right in your browser, supporting all the essential formats: AVIF, JPEG, PNG, WebP, and JPEG XL.
             </p>
-            <h3 className="text-2xl font-semibold text-gray-800 mb-4">Why is Image Optimization Required?</h3>
+            <h3 className="leading-none text-2xl font-semibold text-gray-800 mb-4">Why is Image Optimization Needed?</h3>
             <p className="text-lg text-gray-600 mb-6">
               Large, unoptimized images can significantly slow down your website, leading to frustrated visitors and lower search engine rankings. Google and other search engines prioritize fast-loading websites, making image optimization a vital part of your SEO strategy. By reducing image file sizes without sacrificing quality, you can dramatically improve your site's performance and provide a better user experience.
             </p>
-            <h3 className="text-2xl font-semibold text-gray-800 mb-4">Imgsquash: Your Image Optimization Tool</h3>
+            <h3 className="leading-none text-2xl font-semibold text-gray-800 mb-4">imgSquash.com: Your Local Image Optimization Tool</h3>
             <ul className="list-disc pl-6 text-lg text-gray-600 space-y-4">
               <li>
                 <strong>Support for Next-Gen Formats:</strong> Easily convert your images to modern, highly efficient formats like AVIF and WebP, known for their superior compression and quality compared to older formats like JPEG and PNG. We also support the advanced JPEG XL format, offering excellent compression and features like lossless recompression.
@@ -166,27 +166,27 @@ export function App() {
                 <strong>Fast and Efficient:</strong> Convert and compress your images rapidly, whether you're processing a single image or multiple files.
               </li>
             </ul>
-            <h3 className="text-2xl font-semibold text-gray-800 mt-8 mb-4">Optimize Your Images for Better SEO and Faster Loading User Experiences</h3>
+            <h3 className="leading-none text-2xl font-semibold text-gray-800 mt-8 mb-4">Optimize Your Images for Better SEO and Faster Loading User Experiences</h3>
             <p className="text-lg text-gray-600">
               Using Imgsquash helps you implement key image SEO best practices. Reduced image sizes contribute to faster page load speeds, a critical ranking factor. By having optimized images, you improve user experience, which can lead to lower bounce rates and increased time spent on your site. Start optimizing your images today with Imgsquash and experience the benefits of a faster, higher-ranking website.
             </p>
           </article>
 
           <article className="p-8 bg-white rounded-2xl shadow-lg">
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">AVIF Image Format</h2>
+            <h2 className="leading-none text-3xl font-bold text-gray-900 mb-6">AVIF Image Format</h2>
             <p className="text-lg text-gray-600 mb-6">AVIF (AV1 Image File Format) is a next-generation format offering superior compression for web images.</p>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
-                <h3 className="text-2xl font-semibold text-gray-800 mb-4">Positives</h3>
-                <ul className="list-disc pl-6 text-lg text-gray-600 space-y-2">
+                <h3 className="leading-none text-xl font-semibold text-gray-800 mb-4">Positives</h3>
+                <ul className="leading-6 list-disc pl-6 text-lg text-gray-600 space-y-2">
                   <li>Excellent compression: Smaller file sizes than JPEG and WebP.</li>
                   <li>High quality: Supports lossless and lossy compression.</li>
                   <li>Modern features: Transparency and wide color gamut.</li>
                 </ul>
               </div>
               <div>
-                <h3 className="text-2xl font-semibold text-gray-800 mb-4">Negatives</h3>
-                <ul className="list-disc pl-6 text-lg text-gray-600 space-y-2">
+                <h3 className="leading-none text-xl font-semibold text-gray-800 mb-4">Negatives</h3>
+                <ul className="leading-6 list-disc pl-6 text-lg text-gray-600 space-y-2">
                   <li>Limited browser support: Not fully compatible with older browsers.</li>
                   <li>Slower encoding: Requires more processing power.</li>
                 </ul>
@@ -197,7 +197,7 @@ export function App() {
         </section>
 
         <section className="mt-16">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Why use imgsquash.com?</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Why use imgSquash?</h2>
           <div className="space-y-4">
             {[
               {
@@ -205,7 +205,7 @@ export function App() {
                 content: "Reduce page loading times significantly by compressing images without sacrificing visual quality. Faster load speeds enhance user experience, improve SEO rankings, and ensure your website remains engaging for visitors across all devices."
               },
               {
-                title: "Browser-based",
+                title: "Browser-based & private",
                 content: "Our browser-based tool eliminates the need for software downloads, allowing you to compress and optimize images directly from your device. Accessible on any modern browser, it ensures seamless compatibility across platforms without compromising performance or quality."
               },
               {
@@ -217,7 +217,7 @@ export function App() {
                 content: "Process individual images for quick edits or upload multiple files simultaneously to batch optimize your media library. This flexibility makes it ideal for photographers, designers, and website owners who need efficient image management solutions."
               }
             ].map((item, index) => (
-              <div key={index} className="border border-gray-200 rounded-lg shadow-sm">
+              <div key={index} className="bg-white border border-gray-200 rounded-lg shadow-sm">
                 <button
                   onClick={() => setActiveAccordion(activeAccordion === `item-${index}` ? null : `item-${index}`)}
                   className="w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
