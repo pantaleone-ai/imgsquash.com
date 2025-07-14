@@ -127,7 +127,7 @@ export function App() {
           <hr className="border-t-1 border-gray-200" />
         </section>
 
-        <section className="mt-10 grid gap-12">
+        <section className="mt-16 grid gap-12">
           <article className="p-6 bg-white rounded-2xl shadow-lg">
             <h2 className="leading-none text-3xl text-center font-bold text-gray-900 mb-6">Remove the Watermark Forever!</h2>
             <p className="text-md text-gray-600 mb-4">

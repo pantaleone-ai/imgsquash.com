@@ -61,7 +61,7 @@ export default function Navbar({ session, onLogin, onLogout }) {
                 {/* <img className="h-10 w-10" src='/android-chrome-192x192.png' alt='Imgsquash.com logo icon'></img> */}
                 <span className="text-2xl font-bold text-gray-900" style={{ fontFamily: "'Orbitron', sans-serif" }}>
   <span className="
-    bg-gradient-to-r from-blue-600 to-blue-400 /* The gradient */
+    bg-gradient-to-r from-blue-800 to-blue-500 /* The gradient */
     text-transparent bg-clip-text       /* The clipping magic */
   ">
     img
