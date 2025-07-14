@@ -194,6 +194,99 @@ export function App() {
             </div>
             <p className="mt-6 text-lg text-gray-600">Use AVIF for modern websites needing high-quality images with minimal file sizes. Compress AVIF files with Imgsquash.</p>
           </article>
+
+          <article className="p-8 bg-white rounded-2xl shadow-lg">
+        <h2 className="leading-none text-3xl font-bold text-gray-900 mb-6">JPEG Image Format</h2>
+        <p className="text-lg text-gray-600 mb-6">JPEG (Joint Photographic Experts Group) is a widely used format for photos and web graphics.</p>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 className="leading-none text-xl font-semibold text-gray-800 mb-4">Positives</h3>
+            <ul className="leading-6 list-disc pl-6 text-lg text-gray-600 space-y-2">
+              <li>Universal support: Compatible with all browsers and devices.</li>
+              <li>Good compression: Reduces file sizes for fast loading.</li>
+              <li>Versatile: Ideal for photographs and complex images.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="leading-none text-xl font-semibold text-gray-800 mb-4">Negatives</h3>
+            <ul className="leading-6 list-disc pl-6 text-lg text-gray-600 space-y-2">
+              <li>Lossy compression: Quality degrades with heavy compression.</li>
+              <li>No transparency: Not suitable for logos or overlays.</li>
+            </ul>
+          </div>
+        </div>
+        <p className="mt-6 text-lg text-gray-600">Use JPEG for photos on websites or social media. Optimize JPEGs with Imgsquash’s free JPEG compressor.</p>
+      </article>
+
+      <article className="p-8 bg-white rounded-2xl shadow-lg">
+        <h2 className="leading-none text-3xl font-bold text-gray-900 mb-6">JPEG XL Image Format</h2>
+        <p className="text-lg text-gray-600 mb-6">JPEG XL is an advanced format designed to replace JPEG with better compression and features.</p>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 className="leading-none text-xl font-semibold text-gray-800 mb-4">Positives</h3>
+            <ul className="leading-6 list-disc pl-6 text-lg text-gray-600 space-y-2">
+              <li>Superior compression: Smaller files than JPEG with better quality.</li>
+              <li>Lossless and lossy: Flexible for various use cases.</li>
+              <li>Backward compatibility: Supports legacy JPEG decoding.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="leading-none text-xl font-semibold text-gray-800 mb-4">Negatives</h3>
+            <ul className="leading-6 list-disc pl-6 text-lg text-gray-600 space-y-2">
+              <li>Emerging format: Limited browser support in 2025.</li>
+              <li>Complex adoption: Requires updated software.</li>
+            </ul>
+          </div>
+        </div>
+        <p className="mt-6 text-lg text-gray-600">Use JPEG XL for future-proof web projects. Try compressing JPEG XL files with Imgsquash.</p>
+      </article>
+
+      <article className="p-8 bg-white rounded-2xl shadow-lg">
+        <h2 className="leading-none text-3xl font-bold text-gray-900 mb-6">PNG Image Format</h2>
+        <p className="text-lg text-gray-600 mb-6">PNG (Portable Network Graphics) is popular for web graphics requiring transparency.</p>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 className="leading-none text-xl font-semibold text-gray-800 mb-4">Positives</h3>
+            <ul className="leading-6 list-disc pl-6 text-lg text-gray-600 space-y-2">
+              <li>Transparency support: Perfect for logos and overlays.</li>
+              <li>Lossless compression: Maintains quality without degradation.</li>
+              <li>Wide compatibility: Supported by all browsers.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="leading-none text-xl font-semibold text-gray-800 mb-4">Negatives</h3>
+            <ul className="leading-6 list-disc pl-6 text-lg text-gray-600 space-y-2">
+              <li>Larger file sizes: Less efficient than AVIF or WebP.</li>
+              <li>Not ideal for photos: Better for graphics than complex images.</li>
+            </ul>
+          </div>
+        </div>
+        <p className="mt-6 text-lg text-gray-600">Use PNG for logos or images needing transparency. Optimize PNGs with Imgsquash’s PNG compressor.</p>
+      </article>
+
+      <article className="p-8 bg-white rounded-2xl shadow-lg">
+        <h2 className="leading-none text-3xl font-bold text-gray-900 mb-6">WebP Image Format</h2>
+        <p className="text-lg text-gray-600 mb-6">WebP is a modern format developed by Google for efficient web images.</p>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 className="leading-none text-xl font-semibold text-gray-800 mb-4">Positives</h3>
+            <ul className="leading-6 list-disc pl-6 text-lg text-gray-600 space-y-2">
+              <li>Efficient compression: Smaller files than JPEG and PNG.</li>
+              <li>Transparency support: Similar to PNG but with smaller sizes.</li>
+              <li>Lossy and lossless: Versatile for various needs.</li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="leading-none text-xl font-semibold text-gray-800 mb-4">Negatives</h3>
+            <ul className="leading-6 list-disc pl-6 text-lg text-gray-600 space-y-2">
+              <li>Browser compatibility: Not supported by some older browsers.</li>
+              <li>Conversion required: May need tools to convert from other formats.</li>
+            </ul>
+          </div>
+        </div>
+        <p className="mt-6 text-lg text-gray-600">Use WebP for fast-loading web images. Convert and compress WebP files with Imgsquash’s WebP converter.</p>
+      </article>
+
         </section>
 
         <section className="mt-16">
