@@ -1,4 +1,4 @@
-import { CheckoutForm } from './CheckoutForm';
+import CheckoutForm  from './CheckoutForm.tsx';
 
 export const StripeProvider = () => {
   return (

@@ -1,94 +1,94 @@
-"use client"
+import React, { useCallback, useState, useEffect } from "react";
+import {loadStripe} from '@stripe/stripe-js';
+import {
+  EmbeddedCheckoutProvider,
+  EmbeddedCheckout
+} from '@stripe/react-stripe-js';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate
+} from "react-router";
 
-import { useState } from 'react';
-import { supabase } from '../utils/supabase';
+// Make sure to call `loadStripe` outside of a component’s render to avoid
+// recreating the `Stripe` object on every render.
+// This is your test secret API key.
+const stripePromise = loadStripe("pk_test_51I484jA6IHcdPSqU2f9PPcsQ2J4cFzSfOti8p0enarh0ynMJhxVgdex6BjZtsz8DSKJ8wwurqEutuvfnVDZSzRu600r1hr6IFf");
 
-const CARD_STYLES = {
-  base: "p-8 bg-white rounded-2xl shadow-lg text-center",
-  popular: "border-4 border-blue-500"
-};
+const CheckoutForm = () => {
+  const fetchClientSecret = useCallback(() => {
+    // Create a Checkout Session
+    return fetch("/create-checkout-session", {
+      method: "POST",
+    })
+      .then((res) => res.json())
+      .then((data) => data.clientSecret);
+  }, []);
 
-const BUTTON_STYLES = {
-  base: "w-full px-6 py-3 text-lg font-bold text-white rounded-lg shadow-md transition-colors",
-  primary: "bg-blue-600 hover:bg-blue-700",
-  secondary: "bg-gray-600 hover:bg-gray-700"
-};
-
-const createCheckoutSession = async (priceId: string) => {
-  const { data: { session } } = await supabase.auth.getSession();
-  if (!session) {
-    alert("You must be logged in to subscribe.");
-    return;
-  }
-
-  const { data, error } = await supabase.functions.invoke("stripe-webhook", {
-    body: { priceId },
-    headers: {
-      'Authorization': `Bearer ${session.access_token}`
-    }
-  });
-  
-  if (error) {
-    console.error("Error creating checkout session:", error);
-    alert("Error creating checkout session. Please try again.");
-    return;
-  }
-
-  const { sessionId } = data;
-  const stripe = window.Stripe(import.meta.env.VITE_APP_STRIPE_PUBLISHABLE_KEY as string);
-  await stripe?.redirectToCheckout({ sessionId });
-};
-
-export const CheckoutForm = () => {
-  const [loading, setLoading] = useState(false);
-
-  const handleSubscription = async (priceId: string) => {
-    setLoading(true);
-    await createCheckoutSession(priceId);
-    setLoading(false);
-  };
+  const options = {fetchClientSecret};
 
   return (
-    <section id="subscribe-section" className="my-12">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        {/* Option 1: Monthly Subscription */}
-        <div className={`${CARD_STYLES.base} ${CARD_STYLES.popular}`}>
-          <h3 className="text-2xl font-bold text-gray-900">Monthly Subscription</h3>
-          <p className="mt-4 text-4xl font-extrabold text-gray-900">$5</p>
-          <p className="mt-2 text-lg text-gray-600">per month</p>
-          <button
-            onClick={() => handleSubscription("price_1PFaG2H8xV6jB5g3hxqT0aB1")}
-            className={`mt-6 ${BUTTON_STYLES.base} ${BUTTON_STYLES.primary}`}
-            disabled={loading}
-          >
-            {loading ? "Processing..." : "Subscribe"}
-          </button>
-          <ul className="mt-6 text-left space-y-2 text-gray-600">
-            <li>✅ Remove all watermarks</li>
-            <li>✅ Priority support</li>
-            <li>✅ Cancel anytime</li>
-          </ul>
-        </div>
+    <div id="checkout">
+      <EmbeddedCheckoutProvider
+        stripe={stripePromise}
+        options={options}
+      >
+        <EmbeddedCheckout />
+      </EmbeddedCheckoutProvider>
+    </div>
+  )
+}
 
-        {/* Option 2: Lifetime Use */}
-        <div className={CARD_STYLES.base}>
-          <h3 className="text-2xl font-bold text-gray-900">Lifetime Access</h3>
-          <p className="mt-4 text-4xl font-extrabold text-gray-900">$30</p>
-          <p className="mt-2 text-lg text-gray-600">one-time payment</p>
-          <button
-            onClick={() => handleSubscription("price_1PFaH3H8xV6jB5g3IJJpzg5U")}
-            className={`mt-6 ${BUTTON_STYLES.base} ${BUTTON_STYLES.secondary}`}
-            disabled={loading}
-          >
-            {loading ? "Processing..." : "Get Lifetime Access"}
-          </button>
-          <ul className="mt-6 text-left space-y-2 text-gray-600">
-            <li>✅ Remove all watermarks</li>
-            <li>✅ Priority support</li>
-            <li>✅ Pay once, use forever</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-  );
-};
+const Return = () => {
+  const [status, setStatus] = useState(null);
+  const [customerEmail, setCustomerEmail] = useState('');
+
+  useEffect(() => {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const sessionId = urlParams.get('session_id');
+
+    fetch(`/session-status?session_id=${sessionId}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setStatus(data.status);
+        setCustomerEmail(data.customer_email);
+      });
+  }, []);
+
+  if (status === 'open') {
+    return (
+      <Navigate to="/checkout" />
+    )
+  }
+
+  if (status === 'complete') {
+    return (
+      <section id="success">
+        <p>
+          We appreciate your business! A confirmation email will be sent to {customerEmail}.
+
+          If you have any questions, please email <a href="mailto:orders@example.com">orders@example.com</a>.
+        </p>
+      </section>
+    )
+  }
+
+  return null;
+}
+
+const App = () => {
+  return (
+    <div className="App">
+      <Router>
+        <Routes>
+          <Route path="/checkout" element={<CheckoutForm />} />
+          <Route path="/return" element={<Return />} />
+        </Routes>
+      </Router>
+    </div>
+  )
+}
+
+export default CheckoutForm;

@@ -155,8 +155,9 @@ export function App() {
                     <span className="line-through text-2xl font-sans text-gray-500/70">$99</span><span
                         className="text-5xl font-bold tracking-tight text-gray-900">$49</span>
                 </p>
+                
                 <a href="" 
-                    aria-describedby="tier-extended"
+                    aria-describedby="tier-lifetime"
                     className="bg-blue-600 text-white shadow-md hover:bg-blue-500 mt-6 block rounded-md py-2 px-3 text-center text-base font-medium leading-6 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
                     target="_blank">Buy Now & Save</a>
                 <ul role="list" className="mt-8 space-y-3 text-sm leading-6 text-gray-600 xl:mt-10">
@@ -189,7 +190,7 @@ export function App() {
 
             <div className="ring-1 ring-gray-200 rounded-3xl p-8 xl:p-10">
                 <div className="flex items-center justify-between gap-x-4">
-                    <h3 id="tier-standard" className="text-gray-900 text-2xl font-medium leading-8">Monthly Unlimited</h3>
+                    <h3 id="tier-monthly" className="text-gray-900 text-2xl font-medium leading-8">Monthly Unlimited</h3>
                 </div>
                 <p className="mt-4 text-base leading-6 text-gray-600">Unlimited use for a small monthly fee</p>
                 <p className="mt-6 flex items-baseline gap-x-1">
