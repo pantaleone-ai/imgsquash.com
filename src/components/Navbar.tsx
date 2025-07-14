@@ -21,7 +21,7 @@ export default function Navbar({ session, onLogin, onLogout }) {
   };
 
   return (
-    <div className="sticky top-0 z-50">
+    <div className="sticky top-0 z-50 ">
       {isAnnouncementVisible && (
         <div className="relative isolate flex items-center gap-x-2 overflow-hidden bg-gray-100 px-6 py-2.5 sm:px-3.5 sm:before:flex-1 md:items-center">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
@@ -85,12 +85,12 @@ export default function Navbar({ session, onLogin, onLogout }) {
             <div className="flex md:hidden">
               <button
                 type="button"
-                className="inline-flex items-center justify-center rounded-md p-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-300"
+                className="inline-flex items-center justify-center rounded-md p-2 text-gray-600 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-300 "
                 aria-controls="mobile-menu"
                 aria-expanded="false"
                 onClick={toggleMenu}
               >
-                <span className="sr-only">Open main menu</span>
+                <span className="sr-only ">Open main menu</span>
                 {isMenuOpen ? (
                   <X className="block h-6 w-6" aria-hidden="true" />
                 ) : (
@@ -103,7 +103,7 @@ export default function Navbar({ session, onLogin, onLogout }) {
 
         {/* Mobile menu, show/hide based on menu state */}
         <div className={`${isMenuOpen ? "block" : "hidden"} md:hidden`} id="mobile-menu">
-          <div className="space-y-1 px-2 pb-3 pt-2">
+          <div className="space-y-1 px-2 pb-3 pt-2 ">
             {!session ? <Login onLogin={onLogin} /> : (
               <button onClick={onLogout} className="mt-1 w-full rounded-md bg-red-500 px-3 py-2 text-left text-base font-medium text-white hover:bg-red-600">
                 Logout
